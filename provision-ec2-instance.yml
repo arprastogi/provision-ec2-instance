@@ -1,0 +1,22 @@
+---
+##################
+# Summary: Ansible playbook for provisioning Security Group EC2 instance
+#
+# Description:
+# - The playbook pulls in the common configurations in common.yml
+# - The playbook calls the roles in sequence to create 'Security Group' and then provision 'Ec2 instance'.
+# Created By: Arpit Rastogi
+# 
+
+- name: Horizon Web | Provision AWS Infrastructure using Ansible
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  vars_files:
+    - "playbook_vars/common.yml"
+
+  roles:
+    - { role: create-sg}
+    - { role: create-ec2-instance,
+        grpname: "{{ grp_name }}"
+      }

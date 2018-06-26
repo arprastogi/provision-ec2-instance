@@ -1,0 +1,15 @@
+##################
+# Summary: All playbook common variables across enviornment are defined here.
+#
+# Created By: Arpit Rastogi
+# 
+
+instance_type: t2.micro
+security_group: ansible-webserver # Change the security group name here
+image: ami-76d6f519 # This is an AMI i created myself
+keypair: ansible-key-ap-south-1 # This is one of my keys that i already have in AWS
+region: ap-south-1 # Change the Region
+state: present
+ec2-name: webserver
+count: 1
+hostpath: "./inventoryFile"
